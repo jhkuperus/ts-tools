@@ -7,28 +7,28 @@ export type Optional<A> = A | None
 export const none: None = false
 
 // Basic functions
-export function isEmpty<A>(v: Optional<A>): boolean {
+export function isEmpty<A>(v: Optional<A>): v is None {
     return !v
 }
 
-export function isDefined<A>(v: Optional<A>): boolean {
-    return !!v
+export function isDefined<A>(v: Optional<A>): v is A {
+    return isDefined(v)
 }
 
 export function flatMap<A, B>(v: Optional<A>, f: (v: A) => Optional<B>): Optional<B> {
-    return (!!v) ? f(v) : none
+    return (isDefined(v)) ? f(v) : none
 }
 
 export function fold<A, B>(v: Optional<A>, ifEmpty: () => B, ifDefined: (v: A) => B): B {
-    return (!!v) ? ifDefined(v) : ifEmpty()
+    return (isDefined(v)) ? ifDefined(v) : ifEmpty()
 }
 
 export function map<A, B>(v: Optional<A>, f: (v: A) => B): Optional<B> {
-    return (!!v) ? f(v) : none
+    return (isDefined(v)) ? f(v) : none
 }
 
 export function orElse<A>(v: Optional<A>, defaultValue: A): A {
-    return (!!v) ? v : defaultValue
+    return (isDefined(v)) ? v : defaultValue
 }
 
 
