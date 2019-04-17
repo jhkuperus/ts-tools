@@ -13,7 +13,7 @@ Here is an example of working with the types:
 
 ```javascript
 
-import { map, none, Optional } from 'optional'
+import { isEmpty, map, none, Optional } from 'optional'
 
 
 interface User {
@@ -26,6 +26,13 @@ map(aUser, u => console.log(u.name))
 
 const noUser: Optional<User> = none
 
+console.log(isEmpty(map(aUser, u => console.log(u.name))))
 console.log(orElse(noUser, "No user provided"))
 
 ```
+
+## Name clashes?
+
+If you can't or won't import the `map`, `flatMap` or other functions because they clash with similar functions
+from libraries like `rxjs`, you can simply use `Optional.map`, all functions are also available as members of
+`Optional`
