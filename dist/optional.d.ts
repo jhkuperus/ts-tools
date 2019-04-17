@@ -1,0 +1,21 @@
+import { Observable } from 'rxjs';
+export declare type None = false;
+export declare type Optional<A> = A | None;
+export declare const none: None;
+export declare function isEmpty<A>(v: Optional<A>): boolean;
+export declare function isDefined<A>(v: Optional<A>): boolean;
+export declare function flatMap<A, B>(v: Optional<A>, f: (v: A) => Optional<B>): Optional<B>;
+export declare function fold<A, B>(v: Optional<A>, ifEmpty: () => B, ifDefined: (v: A) => B): B;
+export declare function map<A, B>(v: Optional<A>, f: (v: A) => B): Optional<B>;
+export declare function orElse<A>(v: Optional<A>, defaultValue: A): A;
+export declare function observeNone(): Observable<None>;
+export declare function mapAndLiftObservable<A, B>(v: Optional<A>, f: (v: A) => Observable<B>): Observable<Optional<B>>;
+export declare const Optional: {
+    isDefined: typeof isDefined;
+    isEmpty: typeof isEmpty;
+    flatMap: typeof flatMap;
+    fold: typeof fold;
+    map: typeof map;
+    mapAndLiftObservable: typeof mapAndLiftObservable;
+    none: false;
+};
