@@ -4,6 +4,7 @@
   "description": "This repository contains some of my more generic pieces of TypeScript code that I use over multiple projects. Some of them may be of interest to others, which is why they're open source.",
   "main": "index.js",
   "scripts": {
+    "start": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
