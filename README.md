@@ -3,6 +3,13 @@
 This repository contains some of my more generic pieces of TypeScript code that I use over multiple projects.
 Some of them may be of interest to others, which is why they're open source.
 
+## Getting started
+
+`git clone git@github.com:jhkuperus/ts-tools.git`
+`npm install`
+`npm start`
+
+You now have a `dist/` containing the build results. You can `npm link` in this folder to use this in your project. You do this by finally doing `npm link ts-tools` in your project root folder. You are now using this package locally.
 
 # `Optional` type
 
